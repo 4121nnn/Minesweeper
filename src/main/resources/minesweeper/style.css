@@ -1,0 +1,15 @@
+#gridPane{
+    -fx-background-color: lightgray;
+
+}
+.gridBtn{
+    -fx-border-radius : 0px;
+     -fx-background-radius: 0;
+     -fx-background-color: #535353;
+       -fx-border-color: #8A8A8A;
+}
+.gridBtn:hover{
+
+     -fx-background-color: #8A8A8A;
+
+}
