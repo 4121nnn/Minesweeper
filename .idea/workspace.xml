@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9ee985e8-988f-4c03-a4f6-60e9919c1d02" name="Changes" comment="simpe version of minesweeper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Minesweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Minesweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/minesweeper/minesweeper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/minesweeper.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/minesweeper/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704128614706</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="simpe version of minesweeper">
+      <option name="closed" value="true" />
+      <created>1704129380537</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704129380537</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -11,7 +11,6 @@ public class Controller {
     GridPane gridPane;
 
     public void initialize(){
-
         UI UI = new UI(root, gridPane);
         Engine engine = new Engine(UI,10);
         UI.setEngine(engine);

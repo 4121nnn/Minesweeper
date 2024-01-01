@@ -1,11 +1,14 @@
+#root, #scene{
+     -fx-background-color: rgba(0, 0, 0, 0.2);
+}
 #gridPane{
-    -fx-background-color: lightgray;
+     -fx-background-color: rgba(0, 0, 0, 0.5);
 
 }
 .gridBtn{
     -fx-border-radius : 0px;
      -fx-background-radius: 0;
-     -fx-background-color: #535353;
+     -fx-background-color: rgba(0, 0, 0, 0.5);
        -fx-border-color: #8A8A8A;
 }
 .gridBtn:hover{
