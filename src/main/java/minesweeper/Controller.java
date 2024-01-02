@@ -15,7 +15,7 @@ public class Controller {
 
     public void initialize(){
         UI UI = new UI(root, gridPane);
-        Engine engine = new Engine(UI,35);
+        Engine engine = new Engine(UI,10);
         UI.setEngine(engine);
         UI.createGrid(engine.board.cells, UI.getRow(), UI.getCol());
 

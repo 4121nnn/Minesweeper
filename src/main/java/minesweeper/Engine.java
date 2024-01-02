@@ -5,13 +5,16 @@ import java.util.Random;
 
 public class Engine {
     UI UI;
-    int mines ;
-    static boolean gameIsStarted ;
+    int mines , openCells , totalCells, settedFlags;
+    static boolean gameIsStarted , gameIsOver;
     Board board;
     public Engine(UI UI, int mines){
         this.UI = UI;
         this.mines = mines;
+        openCells = 0;
+        totalCells = UI.getCol() * UI.getRow();
         gameIsStarted = false;
+        gameIsOver = false;
         board = new Board(UI.getRow(), UI.getCol(), mines);
 
     }
@@ -73,12 +76,29 @@ public class Engine {
             openCell(board.cells, row, col);
         }
     }
+    public void buttonRightClick(int row, int col){
+        if(board.cells[row][col].isCovered || !gameIsStarted || gameIsOver) return;
+        if(board.cells[row][col].isFlagged){
+            board.cells[row][col].getButton().setText("");
+            board.cells[row][col].setFlag();
+            settedFlags--;
+        }else if(settedFlags < mines){
+            board.cells[row][col].getButton().setStyle(" -fx-background-color: rgba(171,16,42, 0.5);");
+            board.cells[row][col].setFlag();
+            settedFlags++;
+        }
+
+
+    }
     public void openCell(Cell[][] cells, int row, int col){
         Cell cell = cells[row][col];
+        if(cell.isFlagged || gameIsOver) return;
         if(cell.isMine){
             cell.getButton().setText("X");
+            gameIsOver = true;
             System.out.println("Game is over");
         }else if(!cell.isCovered){
+            openCells++;
             cell.setCovered();
             if(cell.getAdjacentMines() == 0) {
                 for(int i = row - 1; i <= row + 1; i++){
@@ -88,11 +108,16 @@ public class Engine {
                         }
                     }
                 }
-
-
+            }
+            if(openCells + mines == totalCells){
+                playerWins();
             }
         }
     }
+    public void playerWins(){
+        System.out.println("WIN!");
+    }
+
 
 
 }

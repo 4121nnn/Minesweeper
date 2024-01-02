@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -70,13 +71,17 @@ public class UI {
         btn.setMinHeight(size);
         btn.getStyleClass().add("gridBtn");
 
-        btn.onActionProperty().set(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        btn.setOnMouseClicked(event -> {
+
+            if (event.getButton() == MouseButton.PRIMARY) {
                 engine.buttonLeftClick(row, col);
+            } else if (event.getButton() == MouseButton.SECONDARY) {
+                engine.buttonRightClick(row, col);
             }
         });
         return btn;
+
+
     }
     public int getRow(){ return row; }
     public int getCol(){ return col; }
