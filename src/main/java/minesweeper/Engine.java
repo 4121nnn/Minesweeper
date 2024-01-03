@@ -1,21 +1,24 @@
 package minesweeper;
 
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
+
 import java.util.HashSet;
 import java.util.Random;
 
 public class Engine {
-    UI UI;
+    UI ui;
     int mines , openCells , totalCells, settedFlags;
     static boolean gameIsStarted , gameIsOver;
     Board board;
-    public Engine(UI UI, int mines){
-        this.UI = UI;
-        this.mines = mines;
+    public Engine(UI ui, Configurations config){
+        this.ui = ui;
+        this.mines = config.getNumMines();
         openCells = 0;
-        totalCells = UI.getCol() * UI.getRow();
+        totalCells = config.getCol() * config.getRow();
         gameIsStarted = false;
         gameIsOver = false;
-        board = new Board(UI.getRow(), UI.getCol(), mines);
+        board = new Board(config.getRow(), config.getCol(), mines);
 
     }
 
@@ -41,11 +44,9 @@ public class Engine {
             int r = random.nextInt(cells.length);
             int c = random.nextInt(cells[0].length);
             if(!set.contains(r * 100 + c)) {
-                if (!cells[r][c].isMine) {
-                    cells[r][c].setMine();
-                    addedMines++;
-                    set.add((r * 100 + c));
-                }
+                cells[r][c].setMine();
+                set.add((r * 100 + c));
+                addedMines++;
             }
         }
         for(int i = 0; i < cells.length; i++){
@@ -53,6 +54,7 @@ public class Engine {
                 cells[i][j].setAdjacentMines( countAdjacentMines(cells, i, j) );
             }
         }
+        gameIsStarted = true;
     }
     public int countAdjacentMines(Cell[][] cells, int row, int col){
         int count = 0;
@@ -69,17 +71,15 @@ public class Engine {
     public void buttonLeftClick(int row, int col){
         if(!gameIsStarted){
             addMines(board.cells,  mines, row, col);
-            System.out.println("mines added");
-            gameIsStarted = true;
             openCell(board.cells, row, col);
         }else{
             openCell(board.cells, row, col);
         }
     }
     public void buttonRightClick(int row, int col){
-        if(board.cells[row][col].isCovered || !gameIsStarted || gameIsOver) return;
+        if(board.cells[row][col].isUncovered || !gameIsStarted || gameIsOver) return;
         if(board.cells[row][col].isFlagged){
-            board.cells[row][col].getButton().setText("");
+            board.cells[row][col].getButton().setStyle(" -fx-background-color: rgba(0,0,0, 0.5);");
             board.cells[row][col].setFlag();
             settedFlags--;
         }else if(settedFlags < mines){
@@ -96,8 +96,8 @@ public class Engine {
         if(cell.isMine){
             cell.getButton().setText("X");
             gameIsOver = true;
-            System.out.println("Game is over");
-        }else if(!cell.isCovered){
+            endGameRes(false);
+        }else if(!cell.isUncovered){
             openCells++;
             cell.setCovered();
             if(cell.getAdjacentMines() == 0) {
@@ -110,13 +110,28 @@ public class Engine {
                 }
             }
             if(openCells + mines == totalCells){
-                playerWins();
+                endGameRes(true);
             }
+        }else if(cell.isUncovered && cell.adjacentMines > 0){
+            System.out.println("uncovered");
         }
     }
-    public void playerWins(){
-        System.out.println("WIN!");
+    public void endGameRes(Boolean gameRes){
+        ui.gameEnd(gameRes);
     }
+
+
+
+    public void setOnMouseClicked(Button button, int row, int col){
+        button.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                buttonLeftClick(row, col);
+            } else if (event.getButton() == MouseButton.SECONDARY) {
+                buttonRightClick(row, col);
+            }
+        });
+    }
+
 
 
 

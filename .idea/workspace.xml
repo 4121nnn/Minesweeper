@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ee985e8-988f-4c03-a4f6-60e9919c1d02" name="Changes" comment="top bar and exit button">
+    <list default="true" id="9ee985e8-988f-4c03-a4f6-60e9919c1d02" name="Changes" comment="able to set flags and check the win condition">
+      <change afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Configurations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/minesweeper/minesweeper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/minesweeper.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/minesweeper/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,14 +115,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704137808634</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="able to set flags and check the win condition">
+      <option name="closed" value="true" />
+      <created>1704221079906</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704221079906</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="simpe version of minesweeper" />
     <MESSAGE value="transparent background" />
     <MESSAGE value="top bar and exit button" />
-    <option name="LAST_COMMIT_MESSAGE" value="top bar and exit button" />
+    <MESSAGE value="able to set flags and check the win condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="able to set flags and check the win condition" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Minesweeper$Minesweeper.ic" NAME="Minesweeper Coverage Results" MODIFIED="1704102380186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

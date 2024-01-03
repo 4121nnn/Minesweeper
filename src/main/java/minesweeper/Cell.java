@@ -3,7 +3,7 @@ package minesweeper;
 import javafx.scene.control.Button;
 
 public class Cell {
-    boolean isMine, isFlagged, isCovered;
+    boolean isMine, isFlagged, isUncovered;
     int adjacentMines;
     Button btn;
     public void setButton(Button button){
@@ -13,10 +13,10 @@ public class Cell {
         return btn;
     }
     public void setFlag(){
-        if(!isCovered) isFlagged = !isFlagged;
+        if(!isUncovered) isFlagged = !isFlagged;
     }
     public void setCovered(){
-        isCovered = true;
+        isUncovered = true;
         if(getAdjacentMines() > 0) {
             btn.setText("" + getAdjacentMines());
         }

@@ -1,10 +1,11 @@
 package minesweeper;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -14,11 +15,11 @@ public class Controller {
     GridPane gridPane;
 
     public void initialize(){
-        UI UI = new UI(root, gridPane);
-        Engine engine = new Engine(UI,10);
-        UI.setEngine(engine);
-        UI.createGrid(engine.board.cells, UI.getRow(), UI.getCol());
-
+        Configurations config = new Configurations();
+        UI ui = new UI(root, config);
+        Engine engine = new Engine(ui,config);
+        ui.setEngine(engine);
+        ui.createGrid(engine.board.cells, config.getRow(), config.getCol());
     }
     double xOffset, yOffset;
 
@@ -33,7 +34,13 @@ public class Controller {
         stage.setX(event.getScreenX() - xOffset);
         stage.setY(event.getScreenY() - yOffset);
     }
-
-
-    public void exit() { System.exit(0); }
+    public void startNewGame(){
+        gridPane.getChildren().clear();
+        StackPane stackPane = (StackPane) root.lookup("#endGameResPane");
+        stackPane.setVisible(false);
+        initialize();
+    }
+    public void exit() {
+        System.exit(0);
+    }
 }
