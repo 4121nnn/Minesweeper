@@ -41,11 +41,10 @@ public class Engine {
             int r = random.nextInt(cells.length);
             int c = random.nextInt(cells[0].length);
             if(!set.contains(r * 100 + c)) {
-                if (!cells[r][c].isMine) {
-                    cells[r][c].setMine();
-                    addedMines++;
-                    set.add((r * 100 + c));
-                }
+                cells[r][c].setMine();
+                addedMines++;
+                set.add((r * 100 + c));
+                
             }
         }
         for(int i = 0; i < cells.length; i++){
