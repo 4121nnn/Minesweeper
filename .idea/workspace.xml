@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ee985e8-988f-4c03-a4f6-60e9919c1d02" name="Changes" comment="able to set flags and check the win condition">
-      <change afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Configurations.java" afterDir="false" />
+    <list default="true" id="9ee985e8-988f-4c03-a4f6-60e9919c1d02" name="Changes" comment="added new game button and shows the result og game at the end">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/resetDark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/resetLight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/settingsDark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/settingsLight.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/UI.java" afterDir="false" />
@@ -123,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704221079906</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added new game button and shows the result og game at the end">
+      <option name="closed" value="true" />
+      <created>1704309652686</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704309652687</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -131,7 +141,8 @@
     <MESSAGE value="transparent background" />
     <MESSAGE value="top bar and exit button" />
     <MESSAGE value="able to set flags and check the win condition" />
-    <option name="LAST_COMMIT_MESSAGE" value="able to set flags and check the win condition" />
+    <MESSAGE value="added new game button and shows the result og game at the end" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new game button and shows the result og game at the end" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Minesweeper$Minesweeper.ic" NAME="Minesweeper Coverage Results" MODIFIED="1704102380186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -1,7 +1,10 @@
 package minesweeper;
 
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -32,16 +35,24 @@ public class UI {
         gridPane.setLayoutY(topBarHeight);
         setTopMenu();
         setMain();
-
-
+        setIcons(true);
     }
-
     public void setTopMenu(){
         topBar.setMinWidth(width);
         topBar.setMinHeight(topBarHeight);
         Button exitButton = (Button) topBar.lookup("#exitButton");
         //exitButton.setLayoutX(width - topBarHeight);
     }
+    public void setIcons(boolean theme){
+        if(theme){
+            Button settings = (Button) root.lookup("#settings");
+
+            setIcon(settings, "D:\\41n\\java\\Minesweeper\\src\\main\\resources\\minesweeper\\icons\\settingsDark.png");
+            setIcon(newGame,"D:\\41n\\java\\Minesweeper\\src\\main\\resources\\minesweeper\\icons\\resetDark.png" );
+        }
+
+    }
+
     public void setMain(){
         main.setMinHeight(height - topBarHeight);
         main.setMinWidth(width);
@@ -49,7 +60,6 @@ public class UI {
         main.setLayoutY(topBarHeight);
 
     }
-
     public void createGrid(Cell[][] cells, int row, int col){
         int btnSize =  (height - topBarHeight - padding * 2)/ row;
         for(int i = 0; i < row; i++){
@@ -79,16 +89,26 @@ public class UI {
         stackPane.setVisible(true);
         if(gameRes){
             res.setText("YOU WIN!");
-            res.setStyle("-fx-background-color: rgba(8,178,85, 0.5);");
+            res.setStyle("-fx-background-color: rgba(8,178,85, 0.7);");
         }else{
             res.setText("YOU LOSE!");
-            res.setStyle("-fx-background-color: rgba(255,8,8, 0.5);");
+            res.setStyle("-fx-background-color: rgba(255,8,8, 0.7);");
         }
 
     }
+    public void setEngine(Engine engine){
+        this.engine = engine;
+    }
+    public void setIcon(Node node, String path){
+        Image icon = new Image(path);
+        ImageView imageView = new ImageView(icon);
+        imageView.setFitWidth(20);
+        imageView.setFitHeight(20);
+        if(node instanceof Button){
+            ((Button) node).setGraphic(imageView);
+        }
 
-
-    public void setEngine(Engine engine){ this.engine = engine; }
+    }
 
 
 }

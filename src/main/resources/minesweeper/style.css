@@ -28,7 +28,6 @@
      -fx-background-radius: 0;
      -fx-background-color: rgba(0, 0, 0, 0.5);
      -fx-text-fill: #ABABAB;
-     -fx-min-height: tobBarSize;
      -fx-max-height: tobBarSize;
 }
 .topBarButtons:hover{
@@ -37,6 +36,9 @@
 }
 #startNewGameButton{
      -fx-translate-x : 400px;
+}
+#settings{
+    -fx-translate-x : 450px;
 }
 #exitButton{
       -fx-min-width:  tobBarSize;

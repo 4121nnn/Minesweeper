@@ -1,7 +1,10 @@
 package minesweeper;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -13,7 +16,9 @@ public class Controller {
     Pane root;
     @FXML
     GridPane gridPane;
-
+    @FXML
+    Button settings;
+    double xOffset, yOffset;
     public void initialize(){
         Configurations config = new Configurations();
         UI ui = new UI(root, config);
@@ -21,8 +26,6 @@ public class Controller {
         ui.setEngine(engine);
         ui.createGrid(engine.board.cells, config.getRow(), config.getCol());
     }
-    double xOffset, yOffset;
-
     @FXML
     private void handleMousePressed(MouseEvent event) {
         xOffset = event.getSceneX();
@@ -39,6 +42,9 @@ public class Controller {
         StackPane stackPane = (StackPane) root.lookup("#endGameResPane");
         stackPane.setVisible(false);
         initialize();
+    }
+    public void settingsButtonClick(){
+        System.out.println("settings");
     }
     public void exit() {
         System.exit(0);
