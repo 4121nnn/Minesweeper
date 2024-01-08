@@ -12,20 +12,29 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
+<?import javafx.scene.control.MenuButton?>
 <Scene fx:id="scene" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="minesweeper.Controller">
    <Pane fx:id="root">
       <children>
          <Pane fx:id="topBar" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed">
             <Label fx:id="topBarLabel" text="Minesweeper" />
+            <Label fx:id="timerLabel" text="00:00:00" />
             <Button fx:id="startNewGameButton" onAction="#startNewGame" styleClass="topBarButtons" />
-            <Button fx:id="settings" onAction="#settingsButtonClick" styleClass="topBarButtons" />
+            <MenuButton fx:id="settings"  styleClass="topBarButtons"   mnemonicParsing="false" text="Easy">
+               <items >
+                  <MenuItem styleClass="menu-item" mnemonicParsing="false" text="Easy"  onAction="#settings" />
+                  <MenuItem styleClass="menu-item" mnemonicParsing="false" text="Medium" onAction="#settings"/>
+                  <MenuItem styleClass="menu-item" mnemonicParsing="false" text="Hard" onAction="#settings" />
+               </items>
+            </MenuButton>
             <Button fx:id="exitButton" onAction="#exit" prefHeight="25.0" prefWidth="25.0" styleClass="topBarButtons" text="x" />
 
          </Pane>
-         <Pane fx:id="main" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed">
-            <GridPane fx:id="gridPane" />
+         <StackPane fx:id="main" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed" >
 
-         </Pane>
+                  <GridPane fx:id="gridPane"  alignment="CENTER"/>
+
+         </StackPane>
          <StackPane fx:id="endGameResPane" visible="false">
             <Label fx:id="endGameResLabel" />
 

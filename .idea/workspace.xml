@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ee985e8-988f-4c03-a4f6-60e9919c1d02" name="Changes" comment="added new game button and shows the result og game at the end">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/resetDark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/resetLight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/settingsDark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minesweeper/icons/settingsLight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Configurations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/minesweeper/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/minesweeper/UI.java" afterDir="false" />
@@ -48,7 +47,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">

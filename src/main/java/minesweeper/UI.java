@@ -1,13 +1,20 @@
 package minesweeper;
 
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 
 public class UI {
@@ -16,43 +23,43 @@ public class UI {
     Engine engine;
     Configurations config;
     Pane topBar;
-    Pane main;
+    StackPane main;
     Button newGame;
+    Label timerLabel;
+    AnimationTimer timer;
+    private int currentTime;
     private int width, height, topBarHeight, padding;
     public UI(Pane root, Configurations config){
         this.config = config;
         this.root = root;
         this.gridPane = (GridPane) root.lookup("#gridPane");
         this.topBar = (Pane) root.lookup("#topBar");
-        this.main = (Pane) root.lookup("#main");
+        this.main = (StackPane) root.lookup("#main");
         this.width = config.getWidth();
         this.height = config.getHeight();
         this.topBarHeight = config.getTopBarHeight();
         this.padding = config.getPadding();
         this.newGame = (Button) root.lookup("#startNewGameButton");
+        this.timerLabel = (Label) root.lookup("#timerLabel");
         root.setMinWidth(width);
         root.setMinHeight(height);
-        gridPane.setLayoutY(topBarHeight);
         setTopMenu();
         setMain();
         setIcons(true);
+        resetTimer();
+        setTimer();
+
     }
     public void setTopMenu(){
         topBar.setMinWidth(width);
         topBar.setMinHeight(topBarHeight);
-        Button exitButton = (Button) topBar.lookup("#exitButton");
-        //exitButton.setLayoutX(width - topBarHeight);
     }
     public void setIcons(boolean theme){
         if(theme){
-            Button settings = (Button) root.lookup("#settings");
-
-            setIcon(settings, "D:\\41n\\java\\Minesweeper\\src\\main\\resources\\minesweeper\\icons\\settingsDark.png");
             setIcon(newGame,"D:\\41n\\java\\Minesweeper\\src\\main\\resources\\minesweeper\\icons\\resetDark.png" );
         }
 
     }
-
     public void setMain(){
         main.setMinHeight(height - topBarHeight);
         main.setMinWidth(width);
@@ -61,7 +68,11 @@ public class UI {
 
     }
     public void createGrid(Cell[][] cells, int row, int col){
-        int btnSize =  (height - topBarHeight - padding * 2)/ row;
+        resetTimer();
+        gridPane.getChildren().clear();
+        int btnHeight =  (height - topBarHeight - padding * 2 )/ row;
+        int btnWidth =  (width - padding * 2 )/ col ;
+        int btnSize = Math.min(btnHeight, btnWidth);
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
                 Button btn = createButton(i, j, btnSize);
@@ -71,7 +82,7 @@ public class UI {
         }
 
         gridPane.setLayoutX((double) (width - btnSize * col) / 2);
-        gridPane.setLayoutY(topBarHeight- padding);
+        gridPane.setLayoutY(topBarHeight - padding);
 
     }
     public Button createButton(int row, int col, int size){
@@ -84,6 +95,7 @@ public class UI {
         return btn;
     }
     public void gameEnd(boolean gameRes){
+        stopTimer();
         Label res = (Label) root.lookup("#endGameResLabel");
         StackPane stackPane = (StackPane) root.lookup("#endGameResPane");
         stackPane.setVisible(true);
@@ -109,6 +121,30 @@ public class UI {
         }
 
     }
+    public void setTimer(){
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                currentTime++;
+                int seconds = currentTime / 60;
+                int minutes = seconds / 60;
+                int hours = minutes / 60;
+                timerLabel.setText(String.format("%02d:%02d:%02d",hours, minutes, seconds % 60));
+            }
+        };
+    }
+    public void startTimer() {
+        resetTimer();
+        timer.start();
+    }
+    public void resetTimer() {
+        currentTime = 0;
+        timerLabel.setText("00:00:00");
+    }
+    public void stopTimer() {
+        timer.stop();
+    }
+
 
 
 }

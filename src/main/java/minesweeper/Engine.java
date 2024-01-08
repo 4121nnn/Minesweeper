@@ -1,7 +1,10 @@
 package minesweeper;
 
 import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.util.Duration;
 
@@ -10,11 +13,14 @@ import java.util.Random;
 
 public class Engine {
     UI ui;
+    Configurations config;
     int mines , openCells , totalCells, settedFlags;
     static boolean gameIsStarted , gameIsOver;
     Board board;
+    private int secondsElapsed;
     public Engine(UI ui, Configurations config){
         this.ui = ui;
+        this.config = config;
         this.mines = config.getNumMines();
         openCells = 0;
         totalCells = config.getCol() * config.getRow();
@@ -79,6 +85,9 @@ public class Engine {
         if(!gameIsStarted){
             addMines(board.cells,  mines, row, col);
             openCell(board.cells, row, col);
+            ui.resetTimer();
+            ui.startTimer();
+
         }if(board.cells[row][col].isUncovered){
             if(board.cells[row][col].getAdjacentMines() == countAdjacentCells(board.cells, row, col)[1]){
                 openAdjacentCells(board.cells, row, col);
@@ -106,6 +115,7 @@ public class Engine {
         if(cell.isFlagged || gameIsOver) return;
         if(cell.isMine){
             cell.getButton().setText("X");
+            cell.getButton().setStyle("-fx-text-fill: red; -fx-font-size: 14px");
             gameIsOver = true;
             endGameRes(false);
         }else if(!cell.isUncovered){

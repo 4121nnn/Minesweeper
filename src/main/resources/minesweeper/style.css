@@ -1,8 +1,8 @@
 #root{
      tobBarSize: 35px;
-     width: 800px;
-     height: 500px;
-     mainHeight: 465px;
+     width: 1400px;
+     height: 800px;
+     mainHeight: 765px;
 }
 
 #root, #scene{
@@ -14,20 +14,24 @@
     -fx-text-fill: red;
     -fx-min-height: tobBarSize;
 }
-#topBarLabel{
+#topBarLabel, #timerLabel{
     -fx-text-fill: #ABABAB;
     -fx-font-size: 16px;
     -fx-padding: 5px;
     -fx-min-height: tobBarSize;
 }
+#timerLabel{
+      -fx-translate-x : 200px;
+}
 .topBarButtons{
-     -fx-font-size: 16px;
+     -fx-font-size: 14px;
      -fx-border-width: 0;
      -fx-border-color: transparent;
      -fx-border-radius : 0px;
      -fx-background-radius: 0;
      -fx-background-color: rgba(0, 0, 0, 0.5);
      -fx-text-fill: #ABABAB;
+     -fx-min-height: tobBarSize;
      -fx-max-height: tobBarSize;
 }
 .topBarButtons:hover{
@@ -38,14 +42,33 @@
      -fx-translate-x : 400px;
 }
 #settings{
-    -fx-translate-x : 450px;
+     -fx-padding: 0px;
+     -fx-translate-x : 850px;
+     -fx-min-height: tobBarSize;
+     -fx-max-height: tobBarSize;
+     -fx-translate-y : 0px;
+}
+#settings:hover{
+      -fx-background-color: #494949;
+       -fx-text-fill: #F4F4F4;
+}
+#settings .label{
+    -fx-text-fill: white;
+}
+#settings .menu-item {
+     -fx-background-color: black;
+    -fx-text-fill: red;
+}
+#settings .menu-item:hover {
+   -fx-background-color: #494949;
+          -fx-text-fill: #F4F4F4;
 }
 #exitButton{
       -fx-min-width:  tobBarSize;
       -fx-max-width:  tobBarSize;
       -fx-min-height: tobBarSize;
       -fx-max-height: tobBarSize;
-      -fx-translate-x : 765px;
+      -fx-translate-x : 1365px;
        -fx-translate-y : -1px;
 }
 #exitButton:hover{
@@ -53,7 +76,9 @@
      -fx-text-fill: #F4F4F4;
 }
 #main{
- -fx-alignment: center;
+     -fx-alignment: CENTER;
+      -fx-min-width: width;
+      -fx-min-height: mainHeight;
 }
 #endGameResPane{
      -fx-translate-y : tobBarSize;
